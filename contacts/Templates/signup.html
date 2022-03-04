@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>
+         Sign up Form
+    </title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/signup.css' %} ">
+</head>
+    <body>
+        <div class="container">
+        <p class="signin">Sign Up</p>
+        <p class="signupmsg">Already have an account ?<a class="signuplink" href="/">Sign in</a></p>
+        <form method="post" action="">
+            {% csrf_token %}
+            Email<br>
+            <input type="email" name="email" required><br>
+            Password<br>
+            <input type="password" name="pass" required><br>
+            Secret Password<br>
+            <input type="password" name="spass" required><br>
+            <input type="submit" id="button" value="Sign Up">
+            <p>
+                By clicking the 'Sign Up' button, you are
+                creating an <br><p class="para"> account, and you agree the Terms of Use.</p>
+            </p>
+        </form>
+    </div>
+    </body>
+</html>

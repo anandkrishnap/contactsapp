@@ -1,0 +1,46 @@
+{% load static %}
+<!<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/hp.css' %}">
+</head>
+<body>
+<h2 class="heading">Contact Form and Contact List Page</h2>
+<p class="contacts">Add Contacts</p>
+<div class="container">
+    <form method="post" action="">
+        {% csrf_token %}
+        Name <input type="text" name="name" required><br>
+        Ph No <input type="tel" name="phone" required><br>
+        Email <input type="email" name="email" required><br>
+        <input class="button" type="submit" value="Save"><br>
+    </form>
+</div>
+<p class="mycontacts">My Contacts</p>
+
+<table class="tables">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Ph No</th>
+        <th>Email</th>
+    </tr>
+    </thead>
+    <tbody>
+{% for data in contact %}
+    <tr>
+        <td>{{ data.name }}</td>
+        <td>{{ data.phone }}</td>
+        <td>{{ data.email }}</td>
+    </tr>
+{% endfor %}
+    </tbody>
+</table>
+
+</body>
+</html>
